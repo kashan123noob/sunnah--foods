@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Islamic Green Palette */
+  --primary: 146 50% 23%;     /* #1D5D3B - Deep Islamic Green */
+  --primary-foreground: 150 20% 98%;
+  
+  /* Gold/Amber Accents */
+  --accent: 43 74% 49%;       /* #D4AF37 - Metallic Gold */
+  --accent-foreground: 40 20% 10%;
+
+  /* Neutral/Sand tones for background */
+  --background: 40 20% 97%;   /* Off-white/parchment feel */
+  --foreground: 150 30% 15%;  /* Dark green-black text */
+
+  --card: 0 0% 100%;
+  --card-foreground: 150 30% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 150 30% 15%;
+  
+  --muted: 146 20% 92%;
+  --muted-foreground: 146 20% 40%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 146 20% 85%;
+  --input: 146 20% 85%;
+  --ring: 146 50% 23%;
+
+  --radius: 0.75rem;
+  
+  /* Typography Variables */
+  --font-heading: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-arabic: 'Amiri', serif;
+  --font-ornament: 'Cinzel', serif;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    background-image: 
+      radial-gradient(at 0% 0%, hsla(43, 74%, 49%, 0.05) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(146, 50%, 23%, 0.05) 0px, transparent 50%);
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    @apply font-semibold tracking-tight;
+  }
+
+  .font-arabic {
+    font-family: var(--font-arabic);
+  }
+  
+  .font-ornament {
+    font-family: var(--font-ornament);
+  }
+}
+
+/* Islamic Geometric Pattern Overlay */
+.pattern-grid {
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%231D5D3B' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.card-hover-effect {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1 hover:border-accent/50;
+}
